@@ -6,7 +6,7 @@ import { Navigate } from 'react-router-dom'
 
 const CheckoutPayment = ({price, cartItem}) => {
     const URL =`http://localhost:5000//payment-info?${
-    cartItem && `classId = ${cartItem}`
+    cartItem && `classId =${cartItem}`
     }`
     const stripe = useStripe()
     const elements = useElements();
@@ -17,7 +17,7 @@ const CheckoutPayment = ({price, cartItem}) => {
     const [message, setMessage] = useState('')
     const [cart, setCart] = useState([])
     
-    if(price < 0 || !price){
+    if(price <0 || !price){
         return <Navigate to="/dashboard/my-selected" replace />
     } 
 
@@ -100,14 +100,9 @@ const CheckoutPayment = ({price, cartItem}) => {
                         authorization: `Bearer ${localStorage.getItem('token')}`
                     },
                     body: JSON.stringify(data)
-                }).then((res) =>  {
+                }).then(res => res.json()).then(res => {
                     console.log(res)
-                    // if(res.deletedResult.deletedXount > 0 && res.paymentResult.insertedId && res.updatedResult.modifiedCount > 0) {
-                    //     setSucceeded("Payment Successful, You can now access your classes")
-                    // } else {
-                    //     setSucceeded('Payment Failed, Please try again...')
-                    // }
-                }).catch((err) => console.log(err))
+                }).catch(err => console.log(err))
             }
         }
     }
