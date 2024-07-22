@@ -73,7 +73,6 @@ const DashboardLayout = () => {
         });
     }
 
-    // const role = "user"
 
     if(loader){
         return <div className='flex justify-center items-center h-screen'>

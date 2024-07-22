@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import useAxiosSecure from '../../../../Hooks/useAxiosSecure'
 import useUser from '../../../../Hooks/useUser'
-import { Navigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 const CheckoutPayment = ({price, cartItem}) => {
-    const URL =`http://localhost:5000//payment-info?${
+    const URL =`http://localhost:5000/payment-info?${
     cartItem && `classId =${cartItem}`
     }`
     const stripe = useStripe()
@@ -16,7 +16,8 @@ const CheckoutPayment = ({price, cartItem}) => {
     const [succeeded, setSucceeded] = useState('')
     const [message, setMessage] = useState('')
     const [cart, setCart] = useState([])
-    
+    const navigate = useNavigate()
+
     if(price <0 || !price){
         return <Navigate to="/dashboard/my-selected" replace />
     } 
@@ -101,8 +102,16 @@ const CheckoutPayment = ({price, cartItem}) => {
                     },
                     body: JSON.stringify(data)
                 }).then(res => res.json()).then(res => {
-                    console.log(res)
+                console.log(res);
+                if(res.deletedResult.deletedCount > 0 && res.paymentResult.insertedId && res.updatedResult.modifiedCount > 0){
+                    setSucceeded('Payment Successful, You can now access your classes')
+                    alert("Payment Successful, You can now access your classes")
+                    navigate('/dashboard/enrolled-classes')
+                }else {
+                    setSucceeded('Payment Failed!, Please try again...')
+                }
                 }).catch(err => console.log(err))
+                
             }
         }
     }
