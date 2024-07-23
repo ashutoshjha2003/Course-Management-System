@@ -11,7 +11,7 @@ import { AuthContext } from "../../Utilities/Providers/AuthProvider";
 
 const navLinks = [
   { name: "Home", route: "/" },
-  { name: "Instructors", route: "/instructors" },
+  { name: "Teachers", route: "/instructors" },
   { name: "Classes", route: "/classes" },
 ];
 
@@ -244,7 +244,7 @@ const NavBar = () => {
                     </NavLink>
                   </li>
                 )}
-                {user && (
+                {/* {user && (
                   <li>
                     <img
                       src={photoURL}
@@ -252,7 +252,7 @@ const NavBar = () => {
                       className="h-[40px] rounded-full w-[40px]"
                     />
                   </li>
-                )}
+                )} */}
 
                 {user && (
                   <li>
@@ -268,14 +268,14 @@ const NavBar = () => {
                 )}
 
                 {/* Color Toggle */}
-                <li>
+                {/* <li>
                   <ThemeProvider theme={theme}>
                     <div className="flex flex-col justify-center items-center">
                       <Switch onChange={() => setIsDarkMode(!isDarkMode)} />
                       <h1 className="text-[9px]">Light/Dark</h1>
                     </div>
                   </ThemeProvider>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>

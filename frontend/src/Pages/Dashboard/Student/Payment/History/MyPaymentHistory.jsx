@@ -75,7 +75,7 @@ const MyPaymentHistory = () => {
                           <td className='white-space-nowrap px-6 py-4'>{payment.classesId.length}</td>
                           <td className='white-space-nowrap px-6 py-4'>
                             <p className= "text-green-500 text-sm">
-                              {moment(payments.succeeded).format("MMMM Do YYYY, h:mm:ss a")}
+                              {moment(payment.succeeded).format("MMMM Do YYYY, h:mm:ss a")}
                             </p>
                           </td>
                         </tr>

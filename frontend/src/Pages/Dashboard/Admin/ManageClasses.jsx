@@ -4,6 +4,8 @@ import useAxiosFetch from "../../../Hooks/useAxiosFetch";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { Pagination } from "@mui/material";
 import Swal from 'sweetalert2'
+
+
 const ManageClasses = () => {
   const navigate = useNavigate();
   const axiosFetch = useAxiosFetch();
@@ -56,7 +58,7 @@ const ManageClasses = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         const res = axiosSecure .put(`/change-status/${id}`, {status: 'rejected'})
-        // if(res.data.modifiedCount > 0) {
+        if(res.data.modifiedCount > 0) {
           Swal.fire({
             title: "Unpublished!",
             text: "Your course is unpublished.",
@@ -64,7 +66,7 @@ const ManageClasses = () => {
           });
           const updateClass = classes.map(cls => cls._id === id ? {...cls, status: 'rejected'} : cls )
           setClasses(updateClass)
-        // }
+        }
         
       }
     });
@@ -166,7 +168,7 @@ const ManageClasses = () => {
                                   Deny
                                 </button>
                               }
-                              {
+                              {/* {
                                 <button
                                   disabled={
                                     cls.status === "rejected" ||
@@ -177,7 +179,7 @@ const ManageClasses = () => {
                                 >
                                   Feedback
                                 </button>
-                              }
+                              } */}
                             </div>
                           </td>
                         </tr>

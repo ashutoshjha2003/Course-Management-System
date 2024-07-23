@@ -97,7 +97,7 @@ const MyClasses = () => {
                           </span>
                         </h1>
                       </div>
-                      <div className="w-1/3 ml-5">
+                      {/* <div className="w-1/3 ml-5">
                         <h1 className="font-bold mb-3">Action : </h1>
                         <button
                           onClick={() => handleFeedback(cls._id)}
@@ -115,8 +115,8 @@ const MyClasses = () => {
                           } 
                         >
                           Update
-                        </button>
-                      </div>
+                        </button> */}
+                      {/* </div> */}
                     </div>
                   </div>
                 </div>

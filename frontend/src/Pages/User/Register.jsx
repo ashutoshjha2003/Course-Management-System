@@ -6,6 +6,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import GoogleLogin from '../../Components/Social/GoogleLogin';
 import { AuthContext } from '../../Utilities/Providers/AuthProvider';
 import axios from 'axios';
+import { MdOutlinePersonSearch } from "react-icons/md";
 
 const Register = () => {
   const navigate = useNavigate()
@@ -17,12 +18,13 @@ const Register = () => {
     signUp(data.email, data.password).then((result) =>{
       const user = result.user
       if(user){
-        return updateUser(data.name, data.photoUrl).then(()=> {
+        return updateUser(data.name, data.photoUrl).then(()=> {  
+          
           const userImp = {
             name: user?.displayName,
             email: user?.email,
             photoURL: user?.photoURL,
-            role: 'user',
+            role: data.role,
             gender: data.gender,
             phone: data.phone,
             address: data.address
@@ -122,6 +124,19 @@ const Register = () => {
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
+              </select>
+
+            </div> 
+            <div className='mb-4'>
+              <label htmlFor="role" className='block text-gray-700 font-bold mb-2'>
+                <MdOutlinePersonSearch className='inline-block mr-2 mb-1 text-lg' />
+                Select Role
+              </label>
+              <select {...register("role", {required: true} )} className='w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring focus:border-blue-300'>
+                <option value="">Select Role</option>
+                <option value="user">Student</option>
+                <option value="admin">Admin</option>
+                <option value="instructor">Teacher</option>
               </select>
 
             </div>

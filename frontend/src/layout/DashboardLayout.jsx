@@ -20,15 +20,15 @@ const adminNavItems = [
     {to: "/dashboard/admin-home", icon: <BiHomeAlt className='text-2xl' />, label: "Dashboard Home"},
     {to: "/dashboard/manage-users", icon: <FaUsers className='text-2xl' />, label: "Manage Users"},
     {to: "/dashboard/manage-classes", icon: <BsFillPostcardFill className='text-2xl' />, label: "Manage Classes"},
-    {to: "/dashboard/manage-applications", icon: <TbBrandAppleArcade className='text-2xl' />, label: "Manage Applications"}
+    // {to: "/dashboard/manage-applications", icon: <TbBrandAppleArcade className='text-2xl' />, label: "Manage Applications"}
 ]
 
 const instructorNavItems = [
     {to: "/dashboard/instructor-cp", icon: <FaHome className='text-2xl'/>, label: "Home" },
     {to: "/dashboard/add-class", icon: <MdExplore className='text-2xl'/>, label: "Add a class" },
     {to: "/dashboard/my-classes", icon: <IoSchoolSharp className='text-2xl'/>, label: "My Classes" },
-    {to: "/dashboard/my-pending", icon: <MdPendingActions className='text-2xl'/>, label: "Pending Course" },
-    {to: "/dashboard/my-approved", icon: <IoMdDoneAll className='text-2xl'/>, label: "Approved Classes" }
+    // {to: "/dashboard/my-pending", icon: <MdPendingActions className='text-2xl'/>, label: "Pending Course" },
+    // {to: "/dashboard/my-approved", icon: <IoMdDoneAll className='text-2xl'/>, label: "Approved Classes" }
 ]
 
 const student = [
@@ -36,13 +36,13 @@ const student = [
     {to: "/dashboard/enrolled-classes", icon: <SiGoogleclassroom className='text-2xl'/>, label: "My Enroll" },
     {to: "/dashboard/my-selected", icon: <BiSelectMultiple className='text-2xl'/>, label: "My Selected" },
     {to: "/dashboard/my-payments", icon: <MdPayments className='text-2xl'/>, label: "Payment History" },
-    {to: "/dashboard/apply-instructor", icon: <SiInstructure className='text-2xl'/>, label: "Apply For Teacher" }
+    // {to: "/dashboard/apply-instructor", icon: <SiInstructure className='text-2xl'/>, label: "Apply For Teacher" }
 ]
 
 const lastMenuItem = [
     {to: "/" , icon: <BiHomeAlt className='text-2xl' />, label: "Main Home"},
-    {to: "/trending" , icon: <MdOfflineBolt className='text-2xl' />, label: "Trending"},
-    {to: "/browse" , icon: <GiFigurehead className='text-2xl' />, label: "Following"},
+    // {to: "/trending" , icon: <MdOfflineBolt className='text-2xl' />, label: "Trending"},
+    // {to: "/browse" , icon: <GiFigurehead className='text-2xl' />, label: "Following"},
 ]
 
 const DashboardLayout = () => {
