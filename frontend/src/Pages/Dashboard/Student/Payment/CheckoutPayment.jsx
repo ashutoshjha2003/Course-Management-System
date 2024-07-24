@@ -118,32 +118,49 @@ const CheckoutPayment = ({price, cartItem}) => {
 
   return (
     <>
-        <div className='text-center'>
-            <h1 className='text-2xl font-bold'>Payment Amount : <span className='text-secondary'>${price}</span></h1> 
+        <div className="flex justify-center items-center h-screen bg-gray-100">
+      <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
+        <div className="text-center pb-8">
+          <h1 className="text-2xl font-bold text-gray-800">Payment Amount: <span className="text-green-500">${price}</span></h1>
         </div>
 
         <form onSubmit={handleSubmit}>
-            <CardElement options={
-                {
-                    base: {
-                        fontSize: '16px',
-                        color: '#424770',
-                        ":: placeholder":{
-                            color: "#aab7c4"
-                        }
-                    },
-                    invalid: {
-                        color: '#FFC7EE',
-                    },
-                }
-            }/>
+          <div className="mb-6">
+            <label htmlFor="card-element" className="text-sm font-medium text-gray-700 block mb-2">
+              Card Details
+            </label>
+            <CardElement
+              options={{
+                base: {
+                  fontSize: '16px',
+                  color: '#424770',
+                  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+                  fontVariantNumeric: 'tabular-nums',
+                  "::placeholder": {
+                    color: '#aab7c4',
+                  },
+                },
+                invalid: {
+                  color: '#FFC7EE',
+                },
+              }}
+              id="card-element"
+            />
+          </div>
 
-            <button className='bg-green-500 text-white' type='submit' disabled={isLoading || !stripe || !clientSecret}>
-                Pay
-            </button>
-            {message && <p className='text-red-500'>{message}</p>}
-            {succeeded && <p className='text-green-500'>{succeeded}</p>}
+          <button
+            className="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 disabled:opacity-50"
+            type="submit"
+            disabled={isLoading || !stripe || !clientSecret}
+          >
+            {isLoading ? 'Processing...' : 'Pay Now'}
+          </button>
+
+          {message && <p className="text-red-500 mt-2">{message}</p>}
+          {succeeded && <p className="text-green-500 mt-2">Payment Successful!</p>}
         </form>
+      </div>
+    </div>
     </>
   )
 }
