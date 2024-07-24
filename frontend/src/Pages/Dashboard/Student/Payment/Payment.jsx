@@ -18,9 +18,9 @@ const Payment = () => {
   }
 
   return (
-    <div className='my-40 stripe-custom-class'>
+    <div className='my-40 stripe-custom-class '>
       <Elements stripe={stripePromise}>
-        <CheckoutPayment price={price} cartItem={cartItem} />
+        <CheckoutPayment price={price} cartItem={cartItem}  />
       </Elements>
     </div>
   )

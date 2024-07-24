@@ -138,7 +138,7 @@ const CheckoutPayment = ({price, cartItem}) => {
                 }
             }/>
 
-            <button className='bg-primary text-white' type='submit' disabled={isLoading || !stripe || !clientSecret}>
+            <button className='bg-green-500 text-white' type='submit' disabled={isLoading || !stripe || !clientSecret}>
                 Pay
             </button>
             {message && <p className='text-red-500'>{message}</p>}

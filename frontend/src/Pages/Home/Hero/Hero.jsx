@@ -11,10 +11,10 @@ const Hero = () => {
             <div className='md:w-1/2'>
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus officia facilis laboriosam, voluptate asperiores iste? Voluptatum iste tempora cumque quas neque veritatis eaque dicta accusamus vel illo? Numquam, at rem.</p>
             </div>
-            <div className='flex flex-wrap items-center gap-5'>
+            {/* <div className='flex flex-wrap items-center gap-5'>
               <button className='px-7 py-3 rounded-lg bg-secondary font-bold uppercase'>Join Today</button>
               <button className='px-7 py-3 rounded-lg border hover:bg-secondary font-bold uppercase'>View Course</button>
-            </div>
+            </div> */}
           </div>
         </div>
     </div>
